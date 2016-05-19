@@ -1,0 +1,16 @@
+<h3>Drunks {{#link-to 'drunks.add'}}+{{/link-to}}</h3>
+<div class="col-md-6">
+    <table class="table table-hover">
+        <thead>
+            <th>Name</th>
+            <th>Number</th>
+        </thead>
+        {{#each model as |drunk|}}
+        <tr>
+            <td>{{#link-to 'detail' drunk.id}}{{drunk.first_name}} {{drunk.last_name}}{{/link-to}}</td>
+            <td>{{drunk.number}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+{{liquid-outlet}}

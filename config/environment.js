@@ -25,6 +25,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.API_SERVER_HOSTNAME = 'http://localhost:8008'
   }
 
   if (environment === 'test') {
@@ -42,6 +43,13 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+  ENV.API_NAMESPACE = '/api/v1/'
+  ENV.API_SERVER_TOKEN_URL = ENV.API_SERVER_HOSTNAME + '/api-token-auth/';
 
+  ENV['simple-auth'] = {
+    authorizer: 'authorizer:token-auth',
+    store: 'simple-auth-session-store:local-storage',
+    crossOriginWhitelist: ['http://localhost:8008']
+  };
   return ENV;
 };

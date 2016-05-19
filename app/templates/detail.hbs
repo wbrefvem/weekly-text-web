@@ -1,0 +1,13 @@
+<table class="table table-hover">
+    <tbody>
+        <tr><td>{{model.first_name}} {{model.last_name}}</td></tr>
+        <tr><td>{{model.short_name}}</td></tr>
+        <tr><td>{{model.number}}</td></tr>
+    </tbody>
+</table>
+{{#link-to 'drunks.index' class="btn btn-default"}}Back{{/link-to}}
+{{#link-to 'detail.edit' model.id class="btn btn-primary"}}Edit{{/link-to}}
+<a type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteModal">
+    delete
+</a>
+{{liquid-outlet}}
